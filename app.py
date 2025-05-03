@@ -1,13 +1,13 @@
-
 import streamlit as st
 import json
 from utils import connect_to_gsheet, read_sheet_as_df, append_row, generate_sku_code, get_existing_sku_codes
 
+# Set up config
 st.set_page_config("Villa Mart SKU Generator", layout="wide")
 
-GCP_JSON = "gcp_credentials.json"
 SHEET_NAME = "villa_sku_data"
 
+# Load config data
 with open("data/categories.json") as f:
     categories = json.load(f)
 
@@ -17,8 +17,10 @@ with open("data/weighing_methods.json") as f:
 with open("data/partners.json") as f:
     partners = json.load(f)
 
-sheet = connect_to_gsheet(GCP_JSON, SHEET_NAME)
+# Connect to Google Sheet
+sheet = connect_to_gsheet(SHEET_NAME)
 
+# UI
 tab1, tab2 = st.tabs(["📦 SKU Code Generator", "⚙️ Backend"])
 
 with tab1:
