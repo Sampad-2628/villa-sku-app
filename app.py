@@ -5,6 +5,7 @@ from utils import connect_to_gsheet, read_sheet_as_df, append_row, generate_sku_
 # Set up config
 st.set_page_config("Villa Mart SKU Generator", layout="wide")
 
+# ✅ Your Google Sheet name
 SHEET_NAME = "villa_sku_data"
 
 # Load config data
